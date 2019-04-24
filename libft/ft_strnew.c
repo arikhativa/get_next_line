@@ -6,7 +6,7 @@
 /*   By: yrabby <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/06 16:27:10 by yrabby            #+#    #+#             */
-/*   Updated: 2019/04/07 11:55:33 by yrabby           ###   ########.fr       */
+/*   Updated: 2019/04/24 09:38:57 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@ char	*ft_strnew(size_t size)
 	char *str;
 
 	str = ft_memalloc(size + 1);
-	str[size + 1] = '\0';
+	str[size] = '\0';
 	return (str);
 }

@@ -6,13 +6,13 @@
 /*   By: yrabby <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 12:00:06 by yrabby            #+#    #+#             */
-/*   Updated: 2019/04/21 16:55:23 by yrabby           ###   ########.fr       */
+/*   Updated: 2019/04/24 09:29:47 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int		ft_make_line(int fd, char **line, char **sstr, int ok)
+int			ft_make_line(int fd, char **line, char **sstr, int ok)
 {
 	int		n;
 	char	*tmp;
@@ -46,7 +46,7 @@ int				get_next_line(const int fd, char **line)
 	char		*tmp;
 	int			ok;
 
-	if (fd < 0 || line == NULL)
+	if (fd < 0 || line == NULL || BUFF_SIZE < 1)
 		return (-1);
 	while ((ok = read(fd, buff, BUFF_SIZE)) > 0)
 	{
@@ -57,7 +57,7 @@ int				get_next_line(const int fd, char **line)
 		free(sstr[fd]);
 		sstr[fd] = tmp;
 		if (ft_strchr(buff, '\n'))
-				break ;
+			break ;
 	}
 	if (ok < 0)
 		return (-1);
