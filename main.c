@@ -22,9 +22,5 @@ int main (int ac, char **av)
 	get_next_line(fd, &line);
 	printf("%s\n", line);
 	close(fd);
-	/*while (get_next_line(fd, line) != 0)
-	{
-		printf("%s\n", *line);
-	}*/
 	return (0);
 }

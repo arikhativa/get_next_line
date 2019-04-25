@@ -6,18 +6,22 @@
 /*   By: yrabby <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/07 12:54:31 by yrabby            #+#    #+#             */
-/*   Updated: 2019/04/10 15:20:30 by yrabby           ###   ########.fr       */
+/*   Updated: 2019/04/21 15:14:48 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	ft_striter(char *s, void (*f)(char*))
 {
-	int i;
+	int		i;
+	char	*p;
 
+	if (!s || !f)
+		return ;
 	i = 0;
-	while (s[i])
+	p = s;
+	while (p[i])
 	{
-		(*f)(s + i);
+		(*f)(p + i);
 		i++;
 	}
 }

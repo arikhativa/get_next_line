@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strclr.c                                        :+:      :+:    :+:   */
+/*   ft_isprime.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yrabby <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/06 15:49:45 by yrabby            #+#    #+#             */
-/*   Updated: 2019/04/20 18:55:02 by yrabby           ###   ########.fr       */
+/*   Created: 2019/04/24 14:29:50 by yrabby            #+#    #+#             */
+/*   Updated: 2019/04/24 14:51:27 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_strclr(char *s)
+int		ft_isprime(unsigned int nbr)
 {
-	int i;
+	unsigned int i;
 
-	if (!s)
-		return ;
-	i = 0;
-	while (s[i])
+	if (nbr < 2 || nbr == 4)
+		return (0);
+	if (nbr == 2)
+		return (1);
+	i = 2;
+	while (nbr / 2 > i && i < 65540)
 	{
-		s[i] = '\0';
+		if (nbr % i == 0)
+			return (0);
 		i++;
 	}
+	return (1);
 }

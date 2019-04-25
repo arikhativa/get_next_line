@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strclr.c                                        :+:      :+:    :+:   */
+/*   ft_lstlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yrabby <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/06 15:49:45 by yrabby            #+#    #+#             */
-/*   Updated: 2019/04/20 18:55:02 by yrabby           ###   ########.fr       */
+/*   Created: 2019/04/25 09:48:04 by yrabby            #+#    #+#             */
+/*   Updated: 2019/04/25 09:48:11 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_strclr(char *s)
-{
-	int i;
+#include "libft.h"
 
-	if (!s)
-		return ;
-	i = 0;
-	while (s[i])
+int	ft_lstlen(t_list *lst)
+{
+	int n;
+
+	n = 0;
+	if (!lst)
+		return (0);
+	while (lst)
 	{
-		s[i] = '\0';
-		i++;
+		lst = lst->next;
+		n++;
 	}
+	return (n);
 }

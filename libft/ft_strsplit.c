@@ -6,7 +6,7 @@
 /*   By: yrabby <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/07 09:58:51 by yrabby            #+#    #+#             */
-/*   Updated: 2019/04/11 15:03:38 by yrabby           ###   ########.fr       */
+/*   Updated: 2019/04/20 19:07:20 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ char			**ft_strsplit(const char *s, char c)
 	int		n;
 	int		w;
 
+	if (!s)
+		return (NULL);
 	n = 0;
 	while (s[n] == c)
 		n++;

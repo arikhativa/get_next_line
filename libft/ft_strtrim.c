@@ -6,7 +6,7 @@
 /*   By: yrabby <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/07 09:44:37 by yrabby            #+#    #+#             */
-/*   Updated: 2019/04/11 15:33:51 by yrabby           ###   ########.fr       */
+/*   Updated: 2019/04/21 15:06:56 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	is_only_space(const char *s)
 	n = 0;
 	while (SPACE)
 		n++;
-	if (n == ft_strlen(s))
+	if (n == (int)ft_strlen(s))
 		return (1);
 	return (0);
 }
@@ -37,7 +37,7 @@ char		*ft_strtrim(const char *s)
 		new = ft_strsub(s, 0, 0);
 	else
 	{
-		n = ft_strlen(s) - 1;
+		n = (unsigned int)(ft_strlen(s) - 1);
 		while (SPACE)
 			n--;
 		len = n;

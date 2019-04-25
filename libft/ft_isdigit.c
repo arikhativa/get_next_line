@@ -6,13 +6,13 @@
 /*   By: yrabby <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 13:33:22 by yrabby            #+#    #+#             */
-/*   Updated: 2019/04/03 13:34:08 by yrabby           ###   ########.fr       */
+/*   Updated: 2019/04/20 18:48:53 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #define DIGIT c >= '0' && c <= '9'
 
-int		ft_isdigit(char c)
+int		ft_isdigit(int c)
 {
 	if (DIGIT)
 		return (1);

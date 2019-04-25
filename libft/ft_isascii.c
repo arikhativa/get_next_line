@@ -6,13 +6,13 @@
 /*   By: yrabby <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/03 13:37:38 by yrabby            #+#    #+#             */
-/*   Updated: 2019/04/03 13:38:38 by yrabby           ###   ########.fr       */
+/*   Updated: 2019/04/20 18:48:39 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #define ASCII c >= 0 && c <= 127
 
-int		ft_isascii(char c)
+int		ft_isascii(int c)
 {
 	if (ASCII)
 		return (1);

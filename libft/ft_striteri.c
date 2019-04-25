@@ -6,18 +6,22 @@
 /*   By: yrabby <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/07 13:07:03 by yrabby            #+#    #+#             */
-/*   Updated: 2019/04/07 13:12:40 by yrabby           ###   ########.fr       */
+/*   Updated: 2019/04/21 15:15:07 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	unsigned int i;
+	unsigned int	i;
+	char			*p;
 
+	if (!s || !(*s) || !f)
+		return ;
 	i = 0;
-	while (s[i])
+	p = s;
+	while (p[i])
 	{
-		(*f)(i, s + i);
+		(*f)(i, &p[i]);
 		i++;
 	}
 }

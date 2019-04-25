@@ -6,7 +6,7 @@
 /*   By: yrabby <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/10 14:56:51 by yrabby            #+#    #+#             */
-/*   Updated: 2019/04/18 10:36:47 by yrabby           ###   ########.fr       */
+/*   Updated: 2019/04/25 15:10:06 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ typedef	struct	s_list
 	struct s_list	*next;
 }				t_list;
 
-int				ft_strlen(const char *str);
+size_t			ft_strlen(const char *str);
 char			*ft_strdup(const char *str);
 int				ft_atoi(const char *str);
 int				ft_strcmp(const char *s1, const char *s2);
@@ -34,17 +34,16 @@ char			*ft_strchr(const char *str, int n);
 char			*ft_strrchr(const char *str, int n);
 char			*ft_strstr(const char *s1, const char *s2);
 char			*ft_strnstr(const char *s1, const char *s2, size_t n);
-char			*nstr(const char *s1, const char *s2, size_t n);
-int				ft_isalpha(char c);
-int				ft_isdigit(char c);
-int				ft_isascii(char c);
-int				ft_isprint(char c);
-int				ft_isalnum(char c);
+int				ft_isalpha(int c);
+int				ft_isdigit(int c);
+int				ft_isascii(int c);
+int				ft_isprint(int c);
+int				ft_isalnum(int c);
 char			*ft_strcat(char *dst, const char *src);
 char			*ft_strncat(char *dst, const char *src, size_t i);
-int				ft_strlcat(char *dst, const char *src, size_t i);
+size_t			ft_strlcat(char *dst, const char *src, size_t i);
 void			*ft_memset(void *ptr, int n, size_t len);
-int				ft_memcmp(void *s1, void *s2, size_t n);
+int				ft_memcmp(const void *s1, const void *s2, size_t n);
 void			*ft_memchr(const void *str, int c, size_t n);
 int				ft_toupper(int n);
 int				ft_tolower(int n);
@@ -83,5 +82,10 @@ void			ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
 void			ft_lstadd(t_list **alst, t_list *new);
 void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+int				ft_intcount(int nbr);
+int				ft_isprime(unsigned int nbr);
+int				ft_lstlen(t_list *lst);
+int				ft_power(int nbr, int power);
+int				ft_basecnv(char *nbr, int base);
 
 #endif

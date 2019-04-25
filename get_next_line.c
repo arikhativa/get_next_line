@@ -6,62 +6,60 @@
 /*   By: yrabby <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 12:00:06 by yrabby            #+#    #+#             */
-/*   Updated: 2019/04/24 09:29:47 by yrabby           ###   ########.fr       */
+/*   Updated: 2019/04/25 15:47:37 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int			ft_make_line(int fd, char **line, char **sstr, int ok)
+static int	alloc_line(const int fd, char **line, char **str)
 {
 	int		n;
 	char	*tmp;
 
 	n = 0;
-	while (sstr[fd][n] != '\n' && sstr[fd][n] != '\0')
-	   n++;
-	if (sstr[fd][n] == '\n')
+	while (str[fd][n] != '\n' && str[fd][n] != '\0')
+		n++;
+	if (str[fd][n] == '\n')
 	{
-		*line = ft_strsub(sstr[fd], 0, n);
-		tmp = ft_strdup(sstr[fd] + n + 1);
-		free(sstr[fd]);
-		sstr[fd] = tmp;
-		if (sstr[fd][0] == '\0')
-			ft_strdel(&sstr[fd]);
+		*line = ft_strsub(str[fd], 0, n);
+		tmp = ft_strdup(str[fd] + n + 1);
+		free(str[fd]);
+		str[fd] = tmp;
+		if (str[fd][0] == '\0')
+		{
+			ft_strdel(&str[fd]);
+			return (0);
+		}
 	}
-	else if(sstr[fd][n] == '\0')
+	else
 	{
-		if (ok == BUFF_SIZE)
-			return (get_next_line(fd, line));
-		*line = ft_strdup(sstr[fd]);
-		ft_strdel(&sstr[fd]);
+		*line = ft_strdup(str[fd]);
+		ft_strdel(&str[fd]);
+		return (0);
 	}
 	return (1);
 }
 
-int				get_next_line(const int fd, char **line)
+int			get_next_line(const int fd, char **line)
 {
-	static char	*sstr[255];
-	char		buff[BUFF_SIZE + 1];
-	char		*tmp;
 	int			ok;
+	char		*tmp;
+	char		buf[BUFF_SIZE + 1];
+	static char	*str[100];
 
-	if (fd < 0 || line == NULL || BUFF_SIZE < 1)
-		return (-1);
-	while ((ok = read(fd, buff, BUFF_SIZE)) > 0)
+	if (str[fd] == NULL)
 	{
-		buff[ok] = '\0';
-		if (sstr[fd] == NULL)
-			sstr[fd] = ft_strnew(1);
-		tmp = ft_strjoin(sstr[fd], buff);
-		free(sstr[fd]);
-		sstr[fd] = tmp;
-		if (ft_strchr(buff, '\n'))
-			break ;
+		str[fd] = ft_strnew(1);
+		while ((ok = read(fd, buf, BUFF_SIZE)) > 0)
+		{
+			buf[BUFF_SIZE] = '\0';
+			tmp = ft_strjoin(str[fd], buf);
+			free(str[fd]);
+			str[fd] = tmp;
+		}
+		if (ok == -1)
+			return (-1);
 	}
-	if (ok < 0)
-		return (-1);
-	else if (ok == 0 && (sstr[fd] == NULL || sstr[fd][0] == '\0'))
-		return (0);
-	return (ft_make_line(fd, line, sstr, ok));
+	return (alloc_line(fd, line, str));
 }

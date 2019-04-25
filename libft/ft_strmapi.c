@@ -6,7 +6,7 @@
 /*   By: yrabby <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/07 13:30:03 by yrabby            #+#    #+#             */
-/*   Updated: 2019/04/10 15:22:31 by yrabby           ###   ########.fr       */
+/*   Updated: 2019/04/20 19:03:00 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_strmapi(const char *s, char (*f)(unsigned int, char))
 	char			*new;
 	unsigned int	i;
 
+	if (!s)
+		return (NULL);
 	i = 0;
 	new = ft_strnew(ft_strlen(s));
 	if (new == NULL)

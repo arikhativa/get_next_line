@@ -6,7 +6,7 @@
 /*   By: yrabby <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/06 15:32:03 by yrabby            #+#    #+#             */
-/*   Updated: 2019/04/06 15:32:47 by yrabby           ###   ########.fr       */
+/*   Updated: 2019/04/20 19:10:35 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,7 @@
 
 void	ft_putstr_fd(const char *str, int fd)
 {
+	if (!str)
+		return ;
 	write(fd, str, ft_strlen(str));
 }

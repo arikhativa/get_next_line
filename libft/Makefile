@@ -6,7 +6,7 @@
 #    By: yrabby <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/02 15:48:51 by yrabby            #+#    #+#              #
-#    Updated: 2019/04/18 10:40:42 by yrabby           ###   ########.fr        #
+#    Updated: 2019/04/25 13:58:59 by yrabby           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ SRC = ft_atoi.c \
 	  ft_memcmp.c \
 	  ft_memmove.c \
 	  ft_memset.c \
+	  ft_memdel.c \
 	  ft_putchar.c \
 	  ft_putchar_fd.c \
 	  ft_putendl.c \
@@ -69,7 +70,14 @@ SRC = ft_atoi.c \
 	  ft_lstdelone.c \
 	  ft_lstadd.c \
 	  ft_lstiter.c \
-	  ft_lstmap.c 
+	  ft_lstmap.c \
+	  ft_intcount.c \
+	  ft_isprime.c \
+	  ft_lstlen.c \
+	  ft_power.c \
+	  ft_basecnv.c
+
+OBJ = $(SRC:.c=.o)
 
 FLAG = -Wall -Werror -Wextra
 
@@ -81,13 +89,13 @@ all: $(NAME)
 
 .PRECIOUS: $(SRC) $(HED) author
 
-$(NAME): $(SRC)
-		@gcc $(FLAG) -c $^
-		@ar rv $(NAME) *.o
+$(NAME): $(OBJ) Makefile libft.h
+		@gcc $(FLAG) -c $(SRC)
+		@ar rv $(NAME) $(OBJ)
 		@ranlib $(NAME)
 
 clean: 
-		@/bin/rm -f *.o
+		@/bin/rm -f $(OBJ)
 
 fclean: clean
 		@/bin/rm -f $(NAME)
