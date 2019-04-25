@@ -6,7 +6,7 @@
 /*   By: yrabby <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 12:00:06 by yrabby            #+#    #+#             */
-/*   Updated: 2019/04/25 15:47:37 by yrabby           ###   ########.fr       */
+/*   Updated: 2019/04/25 16:29:52 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,12 @@ static int	alloc_line(const int fd, char **line, char **str)
 		free(str[fd]);
 		str[fd] = tmp;
 		if (str[fd][0] == '\0')
-		{
 			ft_strdel(&str[fd]);
-			return (0);
-		}
 	}
-	else
+	else if (str[fd][n] == '\0')
 	{
 		*line = ft_strdup(str[fd]);
 		ft_strdel(&str[fd]);
-		return (0);
 	}
 	return (1);
 }
@@ -48,6 +44,8 @@ int			get_next_line(const int fd, char **line)
 	char		buf[BUFF_SIZE + 1];
 	static char	*str[100];
 
+	if (fd < 0 || line == NULL)
+		return (-1);
 	if (str[fd] == NULL)
 	{
 		str[fd] = ft_strnew(1);
@@ -60,6 +58,8 @@ int			get_next_line(const int fd, char **line)
 		}
 		if (ok == -1)
 			return (-1);
+		if (ok == 0 && (str[fd] == NULL || str[fd][0] == '\0'))
+			return (0);
 	}
 	return (alloc_line(fd, line, str));
 }
