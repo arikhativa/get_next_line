@@ -6,7 +6,7 @@
 /*   By: yrabby <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 12:00:06 by yrabby            #+#    #+#             */
-/*   Updated: 2019/04/25 16:29:52 by yrabby           ###   ########.fr       */
+/*   Updated: 2019/04/26 10:08:19 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,19 +47,19 @@ int			get_next_line(const int fd, char **line)
 	if (fd < 0 || line == NULL)
 		return (-1);
 	if (str[fd] == NULL)
-	{
 		str[fd] = ft_strnew(1);
-		while ((ok = read(fd, buf, BUFF_SIZE)) > 0)
-		{
-			buf[BUFF_SIZE] = '\0';
-			tmp = ft_strjoin(str[fd], buf);
-			free(str[fd]);
-			str[fd] = tmp;
-		}
-		if (ok == -1)
-			return (-1);
-		if (ok == 0 && (str[fd] == NULL || str[fd][0] == '\0'))
-			return (0);
+	while ((ok = read(fd, buf, BUFF_SIZE)) > 0)
+	{
+		buf[BUFF_SIZE] = '\0';
+		tmp = ft_strjoin(str[fd], buf);
+		free(str[fd]);
+		str[fd] = tmp;
+		if (ft_strchr(buf, '\n') != NULL)
+			break ;
 	}
+	if (ok == -1)
+		return (-1);
+	if (ok == 0 && (str[fd] == NULL || str[fd][0] == '\0'))
+		return (0);
 	return (alloc_line(fd, line, str));
 }
