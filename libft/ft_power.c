@@ -51,8 +51,6 @@ int				ft_power(int nbr, int power)
 {
 	int lim;
 
-	if (nbr < 0)
-		nbr = nbr * -1;
 	if (power == 1)
 		return (nbr);
 	if (power == 0)
