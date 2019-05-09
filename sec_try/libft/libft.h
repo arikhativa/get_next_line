@@ -6,7 +6,7 @@
 /*   By: yrabby <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/10 14:56:51 by yrabby            #+#    #+#             */
-/*   Updated: 2019/04/25 15:10:06 by yrabby           ###   ########.fr       */
+/*   Updated: 2019/05/09 14:08:47 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,13 +75,12 @@ void			ft_striter(char *s, void (*f)(char *));
 void			ft_striteri(char *s, void (*f)(unsigned int, char *));
 char			*ft_strmap(const char *s, char (*f)(char));
 char			*ft_strmapi(const char *s, char (*f)(unsigned int, char));
-t_list			*ft_lstnew(void const *c, size_t s);
-void			ft_lstadd(t_list **alist, t_list *new);
+void			ft_lstadd(t_list **alst, t_list *new);
 void			ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void			ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
-void			ft_lstadd(t_list **alst, t_list *new);
 void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+t_list			*ft_lstnew(void const *c, size_t s);
 int				ft_intcount(int nbr);
 int				ft_isprime(unsigned int nbr);
 int				ft_lstlen(t_list *lst);

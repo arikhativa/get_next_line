@@ -6,7 +6,7 @@
 #    By: yrabby <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/02 15:48:51 by yrabby            #+#    #+#              #
-#    Updated: 2019/05/09 13:57:24 by yrabby           ###   ########.fr        #
+#    Updated: 2019/05/09 14:07:13 by yrabby           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,6 @@ SRC = ft_atoi.c \
 	  ft_isdigit.c \
 	  ft_isprint.c \
 	  ft_itoa.c \
-	  ft_lstnew.c \
 	  ft_memalloc.c \
 	  ft_memccpy.c \
 	  ft_memcpy.c \
@@ -70,6 +69,7 @@ SRC = ft_atoi.c \
 	  ft_lstadd.c \
 	  ft_lstiter.c \
 	  ft_lstmap.c \
+	  ft_lstnew.c \
 	  ft_intcount.c \
 	  ft_isprime.c \
 	  ft_lstlen.c \
