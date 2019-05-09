@@ -6,7 +6,7 @@
 #    By: yrabby <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/02 15:48:51 by yrabby            #+#    #+#              #
-#    Updated: 2019/04/25 13:58:59 by yrabby           ###   ########.fr        #
+#    Updated: 2019/05/07 16:52:10 by yrabby           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,6 @@ SRC = ft_atoi.c \
 	  ft_isdigit.c \
 	  ft_isprint.c \
 	  ft_itoa.c \
-	  ft_lstadd.c \
 	  ft_lstnew.c \
 	  ft_memalloc.c \
 	  ft_memccpy.c \
@@ -89,8 +88,10 @@ all: $(NAME)
 
 .PRECIOUS: $(SRC) $(HED) author
 
-$(NAME): $(OBJ) Makefile libft.h
-		@gcc $(FLAG) -c $(SRC)
+$(OBJ): $(SRC)
+		@gcc $(FLAG) $(HED) -c $(SRC)
+		
+$(NAME): $(OBJ)
 		@ar rv $(NAME) $(OBJ)
 		@ranlib $(NAME)
 

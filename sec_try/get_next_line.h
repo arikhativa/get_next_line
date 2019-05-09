@@ -6,13 +6,13 @@
 /*   By: yrabby <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 12:00:57 by yrabby            #+#    #+#             */
-/*   Updated: 2019/05/03 16:15:56 by yrabby           ###   ########.fr       */
+/*   Updated: 2019/05/09 11:51:58 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
-# define BUFF_SIZE 1
+# define BUFF_SIZE 15
 # include "libft/libft.h"
 # include <stdlib.h>
 # include <sys/types.h>
