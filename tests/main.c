@@ -6,6 +6,7 @@
 int main(int ac, char **av)
 {
 	int fd;
+	int fd2;
 	int out;
 	int ok;
 	char *line;
@@ -15,14 +16,17 @@ int main(int ac, char **av)
 	pipe(p);
 	fd = 1;
 	dup2(p[1], fd);
-	write(fd, "asdfghjk", 7);
+	write(fd, "abc\n", 4);
 	close(p[1]);
 	dup2(out, fd);
 	ac = 0;
-//	fd = open(av[1], O_RDONLY);
+	//fd2 = open(av[1], O_RDONLY);
 	while (ac++ < 2)
 	{
+		//ok = get_next_line(fd2, &line);
+
 		ok = get_next_line(p[0], &line);
+
 		printf("ok   == %d\n", ok);
 		printf("line == %s\n", line);
 	}
