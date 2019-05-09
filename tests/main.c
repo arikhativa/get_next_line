@@ -20,15 +20,13 @@ int main(int ac, char **av)
 	close(p[1]);
 	dup2(out, fd);
 	ac = 0;
-	//fd2 = open(av[1], O_RDONLY);
-	while (ac++ < 2)
+	fd2 = open(av[1], O_RDONLY);
+	while ((ok = get_next_line(fd2, &line)) > 0)
 	{
-		//ok = get_next_line(fd2, &line);
-
-		ok = get_next_line(p[0], &line);
-
-		printf("ok   == %d\n", ok);
-		printf("line == %s\n", line);
+		//ok = get_next_line(p[0], &line);
+		printf("%s\n", line);
+		free(line);
 	}
+		printf("ok-%d\n", ok);
 	return (0);
 }

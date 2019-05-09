@@ -6,7 +6,7 @@
 #    By: yrabby <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/02 15:48:51 by yrabby            #+#    #+#              #
-#    Updated: 2019/05/07 16:52:10 by yrabby           ###   ########.fr        #
+#    Updated: 2019/05/09 13:57:24 by yrabby           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,8 +80,6 @@ OBJ = $(SRC:.c=.o)
 
 FLAG = -Wall -Werror -Wextra
 
-HED = libft.h
-
 all: $(NAME)
 
 .PHONY: clean fclean re all
@@ -89,7 +87,7 @@ all: $(NAME)
 .PRECIOUS: $(SRC) $(HED) author
 
 $(OBJ): $(SRC)
-		@gcc $(FLAG) $(HED) -c $(SRC)
+		@gcc $(FLAG) -c $(SRC)
 		
 $(NAME): $(OBJ)
 		@ar rv $(NAME) $(OBJ)
