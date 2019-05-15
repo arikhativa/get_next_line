@@ -6,7 +6,7 @@
 /*   By: yrabby <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/18 12:00:06 by yrabby            #+#    #+#             */
-/*   Updated: 2019/05/09 13:51:46 by yrabby           ###   ########.fr       */
+/*   Updated: 2019/05/15 12:31:42 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,9 @@ int			get_next_line(const int fd, char **line)
 	int			ok;
 	char		*tmp;
 	char		buf[BUFF_SIZE + 1];
-	static char	*str[512];
+	static char	*str[MAX_FD];
 
-	if (fd < 0 || line == NULL || BUFF_SIZE < 1)
+	if (fd > MAX_FD || fd < 0 || line == NULL || BUFF_SIZE < 1)
 		return (-1);
 	if (str[fd] == NULL && (!(str[fd] = ft_strnew(1))))
 		return (-1);
