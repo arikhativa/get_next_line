@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 15:35:23 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/29 11:24:34 by yoav             ###   ########.fr       */
+/*   Updated: 2022/06/29 11:24:27 by yoav             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <unistd.h>
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*split_str(char **origin, size_t i)
 {

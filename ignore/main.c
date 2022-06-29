@@ -13,19 +13,29 @@
 
 int main()
 {
+	char *line1;
 	char *line;
+	int fd;
+	int fd1;
 
-	int fd = open("testfile.txt", O_RDONLY);
-    if(fd < 0)
-        return 1;
-	
+	fd = open("testfile.txt", O_RDONLY);
+	if (0 > fd)
+		return (1);
+	fd1 = open("tttt.txt", O_RDONLY);
+	if (0 > fd1)
+		return (1);
+	line1 = get_next_line(fd1);
 	line = get_next_line(fd);
-	if (!line)
-		printf("%s", "ERROR\n");
 	while (line)
 	{
 		printf("%s", line);
 		free(line);
 		line = get_next_line(fd);
+	}
+	while (line1)
+	{
+		printf("%s", line1);
+		free(line1);
+		line1 = get_next_line(fd1);
 	}
 }
