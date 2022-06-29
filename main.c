@@ -1,4 +1,5 @@
 
+#include <stdlib.h>
 #include <stddef.h>
 #include <stdio.h>
 #include <fcntl.h>
@@ -24,6 +25,7 @@ int main()
 	while (line)
 	{
 		printf("%s", line);
+		free(line);
 		line = get_next_line(fd);
 	}
 }
