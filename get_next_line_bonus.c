@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 15:35:23 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/29 11:24:27 by yoav             ###   ########.fr       */
+/*   Updated: 2022/07/20 15:41:07 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,6 +100,8 @@ char	*get_next_line(int fd)
 	char		*ret;
 	ssize_t		stt;
 
+	if (MAX_FD < fd || 0 > fd)
+		return (NULL);
 	stt = ERROR;
 	ret = create_line(&(buff[fd]));
 	while (!ret && END_OF_FILE != stt)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 15:35:18 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/29 11:18:17 by yoav             ###   ########.fr       */
+/*   Updated: 2022/07/20 17:27:31 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # endif
 
 # ifndef MAX_FD
-#  define MAX_FD 1000
+#  define MAX_FD 4000
 # endif
 
 # ifndef ERROR
