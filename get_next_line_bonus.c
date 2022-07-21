@@ -6,7 +6,7 @@
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 15:35:23 by yoav              #+#    #+#             */
-/*   Updated: 2022/07/20 15:41:07 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/07/21 14:00:09 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,26 +15,26 @@
 
 #include "get_next_line_bonus.h"
 
-char	*split_str(char **origin, size_t i)
+static char	*split_str(char **origin, size_t i)
 {
 	char	*tmp;
 	char	*ret;
 
-	ret = ft_strndup(*origin, i);
+	ret = gnl_strndup(*origin, i);
 	if (!ret)
 		return (NULL);
-	tmp = ft_strndup((*origin) + i, ft_strlen(*origin) - i);
+	tmp = gnl_strndup((*origin) + i, gnl_strlen(*origin) - i);
 	if (!tmp)
 	{
 		free(ret);
 		return (NULL);
 	}
-	swap_ptr(&tmp, origin);
+	gnl_swap_ptr(&tmp, origin);
 	free(tmp);
 	return (ret);
 }
 
-char	*create_line(char **buff)
+static char	*create_line(char **buff)
 {
 	char	*ret;
 	char	*runner;
@@ -55,7 +55,7 @@ char	*create_line(char **buff)
 	return (NULL);
 }
 
-ssize_t	extened_buffer(int fd, char **buff)
+static ssize_t	extened_buffer(int fd, char **buff)
 {
 	char		*new_buff;
 	char		*tmp;
@@ -71,9 +71,12 @@ ssize_t	extened_buffer(int fd, char **buff)
 		return (stt);
 	}
 	tmp[stt] = '\0';
-	new_buff = ft_join_str(*buff, tmp);
+	new_buff = gnl_join_str(*buff, tmp);
 	if (!new_buff)
+	{
+		free(tmp);
 		return (ERROR);
+	}
 	*buff = new_buff;
 	return (stt);
 }
@@ -82,7 +85,7 @@ static char	*handle_eof(ssize_t stt, char **buff, char *ret)
 {
 	if (END_OF_FILE == stt)
 	{
-		if (0 != ft_strlen(*buff))
+		if (0 != gnl_strlen(*buff))
 			ret = *buff;
 		else
 		{

@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yoav <yoav@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 15:35:25 by yoav              #+#    #+#             */
-/*   Updated: 2022/06/29 11:21:40 by yoav             ###   ########.fr       */
+/*   Updated: 2022/07/21 14:00:35 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <stddef.h>
 
-size_t	ft_strlen(char *s)
+size_t	gnl_strlen(char *s)
 {
 	size_t	i;
 
@@ -25,7 +25,7 @@ size_t	ft_strlen(char *s)
 	return (i);
 }
 
-void	ft_memcpy(char *d, char *s, size_t size)
+static void	ft_memcpy(char *d, char *s, size_t size)
 {
 	size_t	i;
 
@@ -39,7 +39,7 @@ void	ft_memcpy(char *d, char *s, size_t size)
 	}
 }
 
-void	swap_ptr(char **a, char **b)
+void	gnl_swap_ptr(char **a, char **b)
 {
 	char	*tmp;
 
@@ -48,7 +48,7 @@ void	swap_ptr(char **a, char **b)
 	*b = tmp;
 }
 
-char	*ft_strndup(char *s, size_t size)
+char	*gnl_strndup(char *s, size_t size)
 {
 	size_t	i;
 	char	*ret;
@@ -66,14 +66,14 @@ char	*ft_strndup(char *s, size_t size)
 	return (ret);
 }
 
-char	*ft_join_str(char *buff, char *str)
+char	*gnl_join_str(char *buff, char *str)
 {
 	size_t	i;
 	size_t	j;
 	char	*ret;
 
-	i = ft_strlen(buff);
-	j = ft_strlen(str);
+	i = gnl_strlen(buff);
+	j = gnl_strlen(str);
 	ret = (char *)malloc(sizeof(char) * (i + j + 1));
 	if (!ret)
 		return (NULL);

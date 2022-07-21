@@ -6,7 +6,7 @@
 /*   By: yrabby <yrabby@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/28 15:35:18 by yoav              #+#    #+#             */
-/*   Updated: 2022/07/20 17:27:31 by yrabby           ###   ########.fr       */
+/*   Updated: 2022/07/21 13:56:02 by yrabby           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,10 @@
 
 # include <stddef.h>
 
-char	*ft_join_str(char *a, char *b);
-size_t	ft_strlen(char *s);
-void	ft_memcpy(char *d, char *s, size_t size);
-void	swap_ptr(char **a, char **b);
-char	*ft_strndup(char *s, size_t size);
+char	*gnl_join_str(char *a, char *b);
+size_t	gnl_strlen(char *s);
+void	gnl_swap_ptr(char **a, char **b);
+char	*gnl_strndup(char *s, size_t size);
 char	*get_next_line(int fd);
 
 #endif
